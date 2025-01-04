@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VR Data Solution</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://st3.depositphotos.com/2769299/15264/i/600/depositphotos_152646898-stock-photo-blue-smoky-texture.jpg'); /* Background image for body */
+            background-size: cover; /* Make the background image cover the entire page */
+            background-position: center; /* Center the background image */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container, .main-container, .iframe-container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 350px;
+            display: none;
+        }
+
+        .login-container {
+            display: block;
+        }
+
+        .login-container h1 {
+            color: #2575fc;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2575fc;
+            box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: #2575fc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background: #6a11cb;
+        }
+
+        .button {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 0.8rem;
+            background: #f3f3f3;
+            color: #2575fc;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #2575fc;
+            color: #fff;
+        }
+
+        .footer {
+            margin-top: 1rem;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .submit-btn {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: #2575fc;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #6a11cb;
+        }
+
+        #timer {
+            font-size: 1.2rem;
+            color: #2575fc;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="loginContainer">
+        <h1>Login to VR Data Solution</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <p id="loginError" style="color: red; display: none;">Incorrect username or password</p>
+        </form>
+    </div>
+
+    <div class="main-container" id="mainContainer">
+        <h1>Welcome to VR Data Solution</h1>
+        <button class="button" id="myProjectBtn">My Projects</button>
+        <a href="earnings.html" class="button">Go to My Earnings</a>
+        <button class="submit-btn" id="logoutBtn">Logout</button>
+        <p class="footer">Click a button to explore more.</p>
+    </div>
+
+    <div class="iframe-container" id="iframeContainer">
+        <h2>My Projects</h2>
+        <div>
+            <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl32krjsiJif0lANpR75aCKaZqwYBGcui32A&s" 
+                alt="Project Overview" 
+                id="projectImage"
+                style="width: 100%; height: auto; border-radius: 10px; margin-bottom: 1rem;">
+            <button class="submit-btn" id="zoomInBtn" style="width: 45%; margin-right: 10px;">Zoom In</button>
+            <button class="submit-btn" id="zoomOutBtn" style="width: 45%;">Zoom Out</button>
+        </div>
+        <iframe 
+            src="https://docs.google.com/spreadsheets/d/19Kq3aoH0p8f4ojcZ0epZLk5oRoSjfMEcbjZmUliPZ6M/edit?gid=0#gid=0">
+        </iframe>
+
+        <!-- Timer Display -->
+        <p id="timer">Time Left: 7d 0h 0m 0s</p>
+
+        <button class="submit-btn" id="submitExcelBtn">Submit Data</button>
+        <button class="submit-btn" id="backBtnIframe">Back</button>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        function logout() {
+            // Redirect to the login page
+            window.location.href = 'login.html';
+        }
+
+        document.getElementById('logoutBtn').addEventListener('click', logout);
+    </script>
+</body>
+</html>

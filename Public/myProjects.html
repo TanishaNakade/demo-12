@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+        }
+        .file-container {
+            display: flex;
+            gap: 2rem;
+        }
+        .file-icon {
+            text-align: center;
+            cursor: pointer;
+        }
+        .file-icon img {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .file-icon img:hover {
+            transform: scale(1.1);
+        }
+        .file-label {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Choose a File</h1>
+    <div class="file-container">
+        <div class="file-icon" onclick="openImage('DCBA-ELTY-RPVF-1500-MG007.gif')">
+            <img src="icon1.png" alt="Image One Icon">
+            <span class="file-label">Image One</span>
+        </div>
+        <div class="file-icon" onclick="openImage('DCBA-ELTY-RPVF-1500-MG008.gif')">
+            <img src="icon2.png" alt="Image Two Icon">
+            <span class="file-label">Image Two</span>
+        </div>
+    </div>
+
+    <script>
+        function openImage(imagePath) {
+            window.location.href = `viewImage.html?image=${imagePath}`;
+        }
+    </script>
+</body>
+</html>

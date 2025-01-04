@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Image</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #000;
+        }
+        img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img id="imageDisplay" alt="Image">
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const imagePath = params.get("image");
+
+        if (imagePath) {
+            document.getElementById("imageDisplay").src = imagePath;
+        } else {
+            alert("No image found!");
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
