@@ -99,3 +99,5 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(timer); // Stop the countdown when navigating away
     });
 });
+const PORT =process_params.env.PORT ||3000;
+server.listen(PORT,()=>console.log("Server is running on port 3000"));
